@@ -2,7 +2,7 @@
 
 # 👀 Important
 
-:key: <p> take a look ✔️ https://fadayopaul.github.io/Bankist-website/ </p>
+:key: <p> take a look ✔️ https://fadayopaul.github.io/bankpay-website/ </p>
 
 <h3 align="center"> 
 	Application status: Developement Stage ⚠️
@@ -12,12 +12,6 @@
 ## 📓 About
 
 In this project I've learned and applied advanced techniques of DOM manipulation and animation, I also made the site fully responsive
-
-<!-- ## :star: Features
-- [x] Search bar
-- [x] Movie details
-- [x] AOS animation
- -->
 
 ## :rocket: Technologies used:
 
