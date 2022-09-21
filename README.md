@@ -1,6 +1,6 @@
 # 👀 Important
 
-:key:<p>Take a look https://fadayopaul.github.io/bankpay-website/ </p>
+:key:<span>Take a look https://fadayopaul.github.io/bankpay-website/ </span>
 
 <h3 align="center"> 
 	Application status: Developement Stage ⚠️
@@ -10,6 +10,17 @@
 ## 📓 About
 
 In this project I've learned and applied advanced techniques of DOM manipulation and animation, I also made the site fully responsive
+
+## ✅ Features implemented in the website
+
+- Modal windows
+- Smooth scrolling
+- Fadeout animation on the NAV links
+- Sticky navigation bar
+- Tabs component
+- Image slider
+- Relieve sections on scroll animation
+- Lazy load images
 
 ## :rocket: Technologies used:
 
