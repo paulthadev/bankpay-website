@@ -1,8 +1,6 @@
-# bankpay-website
-
 # 👀 Important
 
-:key: <p> take a look ✔️ https://fadayopaul.github.io/bankpay-website/ </p>
+:key: <p> take a look https://fadayopaul.github.io/bankpay-website/ </p>
 
 <h3 align="center"> 
 	Application status: Developement Stage ⚠️
