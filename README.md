@@ -2,7 +2,8 @@
 
 # 👀 Important
 
-<!-- :key: <p> take a look ✔️ https://fadayopaul.github.io/Bankist-website/ </p> -->
+:key: <p> take a look ✔️ https://fadayopaul.github.io/Bankist-website/ </p>
+
 <h3 align="center"> 
 	Application status: Developement Stage ⚠️
 </h3>
@@ -30,5 +31,5 @@ In this project I've learned and applied advanced techniques of DOM manipulation
 
 ## :information_source: Application installation
 
-<!-- - `https://github.com/fadayopaul/Bankist-website.git` to clone the repository -->
-<br>
+- `https://github.com/fadayopaul/bankpay-website.git` to clone the repository
+  <br>
