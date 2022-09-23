@@ -61,7 +61,6 @@ document
 /* 4. Adding style to cookie button */
 const btnCookie = document.querySelector('.btn--close-cookie');
 
-btnCookie.style.backgroundColor = '#516853';
 btnCookie.style.color = '#e6e6e6';
 btnCookie.style.marginLeft = Number.parseFloat(1.5, 10) + 'rem';
 
