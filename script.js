@@ -1,14 +1,20 @@
 'use strict';
-const header = document.querySelector('.header');
 
-//////////////////////////////////////////////////////
-// Modal window
-
+/* Modal Selection*/
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnModalNextStep = document.querySelector('.btn--Next');
+
+/* header - Section selection */
+const header = document.querySelector('.header');
+const section1 = document.getElementById('section--1');
+const section2 = document.getElementById('section--2');
+const section3 = document.getElementById('section--3');
+
+//////////////////////////////////////////////////////
+/* Modal window integration */
 
 const openModal = function (e) {
   e.preventDefault();
@@ -36,7 +42,7 @@ document.addEventListener('keydown', function (e) {
 });
 
 ////////////////////////////////////////////////////
-// cookies message
+/* cookie integration*/
 
 /* 1. create cookie*/
 const message = `
@@ -65,3 +71,28 @@ btnCookie.style.color = '#e6e6e6';
 btnCookie.style.marginLeft = Number.parseFloat(1.5, 10) + 'rem';
 
 ////////////////////////////////////////////////
+/* Smooth Scrolling Integration*/
+
+/*  Navbar Link Navigation- using event delegation*/
+const links = document.querySelector('.nav__links');
+
+//1. Add event lsistener to common parent element
+links.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  // 2. determine what element originated the event - using e.target and match the strategy
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+/* Learn More button */
+const btnLearnMore = document.querySelector('.btn--scroll-to');
+
+btnLearnMore.addEventListener('click', function (e) {
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+////////////////////////////////////////////////////////
