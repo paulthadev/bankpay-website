@@ -13,6 +13,9 @@ const section1 = document.getElementById('section--1');
 const section2 = document.getElementById('section--2');
 const section3 = document.getElementById('section--3');
 
+/* other selection*/
+const copyrightDate = document.querySelector('.copyright--date');
+
 //////////////////////////////////////////////////////
 /* Modal window integration */
 
@@ -96,3 +99,4 @@ btnLearnMore.addEventListener('click', function (e) {
 });
 
 ////////////////////////////////////////////////////////
+copyrightDate.textContent = new Date().getFullYear();
