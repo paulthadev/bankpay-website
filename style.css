@@ -72,7 +72,7 @@ body {
   font-family: inherit;
   font-weight: 500;
   border: none;
-  padding: 0.81rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 10rem;
   cursor: pointer;
   transition: all 0.3s;
@@ -287,6 +287,7 @@ h4 {
 .operations__tab {
   margin-right: 2.5rem;
   transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
 }
 
 .operations__tab span {
