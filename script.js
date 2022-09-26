@@ -13,6 +13,9 @@ const section1 = document.getElementById('section--1');
 const section2 = document.getElementById('section--2');
 const section3 = document.getElementById('section--3');
 
+/* button selection */
+const btnLearnMore = document.querySelector('.btn--scroll-to');
+
 /* other selection*/
 const copyrightDate = document.querySelector('.copyright--date');
 
@@ -26,7 +29,6 @@ const openModal = function (e) {
 };
 
 const closeModal = function (e) {
-  e.preventDefault();
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
@@ -39,6 +41,7 @@ overlay.addEventListener('click', closeModal);
 btnModalNextStep.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
+  e.preventDefault();
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
@@ -92,8 +95,6 @@ links.addEventListener('click', function (e) {
 });
 
 /* Learn More button */
-const btnLearnMore = document.querySelector('.btn--scroll-to');
-
 btnLearnMore.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
