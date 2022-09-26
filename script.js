@@ -13,7 +13,14 @@ const section1 = document.getElementById('section--1');
 const section2 = document.getElementById('section--2');
 const section3 = document.getElementById('section--3');
 
-/* button selection */
+/* Tab selection */
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+/* links & button selection */
+const nav = document.querySelector('.nav');
+const links = document.querySelector('.nav__links');
 const btnLearnMore = document.querySelector('.btn--scroll-to');
 
 /* other selection*/
@@ -23,7 +30,6 @@ const copyrightDate = document.querySelector('.copyright--date');
 /* Modal window integration */
 
 const openModal = function (e) {
-  e.preventDefault();
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -41,14 +47,13 @@ overlay.addEventListener('click', closeModal);
 btnModalNextStep.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
-  e.preventDefault();
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
 });
 
 ////////////////////////////////////////////////////
-/* cookie integration*/
+/* cookie integration */
 
 /* 1. create cookie*/
 const message = `
@@ -80,8 +85,6 @@ btnCookie.style.marginLeft = Number.parseFloat(1.5, 10) + 'rem';
 /* Smooth Scrolling Integration*/
 
 /*  Navbar Link Navigation- using event delegation*/
-const links = document.querySelector('.nav__links');
-
 //1. Add event lsistener to common parent element
 links.addEventListener('click', function (e) {
   e.preventDefault();
@@ -105,12 +108,7 @@ btnLearnMore.addEventListener('click', function (e) {
 copyrightDate.textContent = new Date().getFullYear();
 
 ///////////////////////////////////////////////////
-
 /* Tab component integration */
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
-
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
 
@@ -132,3 +130,22 @@ tabsContainer.addEventListener('click', function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
 });
+
+//////////////////////////////////////////////////////
+/* Menu fade animation */
+const handleHover = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+
+nav.addEventListener('mouseout', handleHover.bind(1));
