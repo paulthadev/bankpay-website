@@ -9,6 +9,7 @@ const btnModalNextStep = document.querySelector('.btn--Next');
 
 /* header - Section selection */
 const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
 const section1 = document.getElementById('section--1');
 const section2 = document.getElementById('section--2');
 const section3 = document.getElementById('section--3');
@@ -187,3 +188,33 @@ const headerObserver = new IntersectionObserver(
 );
 headerObserver.observe(header);
 ////////////////////////////////////////////////////////
+/* Reveal sections: Intersection Observer API */
+
+// callback function
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+
+  observer.unobserve(entry.target);
+};
+
+// options
+const sectionobserverOption = {
+  root: null,
+  threshold: 0.15,
+};
+
+// Intersection Observer API
+const sectionObserver = new IntersectionObserver(
+  revealSection,
+  sectionobserverOption
+);
+
+// looping the allsection to observe the sections
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+
+  section.classList.add('section--hidden');
+});
