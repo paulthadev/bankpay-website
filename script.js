@@ -60,7 +60,7 @@ document.addEventListener('keydown', function (e) {
 const message = `
 <div class="cookie-message"> 
 We use cookies for improved functionality and analytics.
-<button class="btn btn--close-cookie"> Okay
+<button class="btn--cookie btn--close-cookie"> Okay
 </button>
 </div`;
 
@@ -79,7 +79,6 @@ document
 /* 4. Adding style to cookie button */
 const btnCookie = document.querySelector('.btn--close-cookie');
 
-btnCookie.style.color = '#e6e6e6';
 btnCookie.style.marginLeft = Number.parseFloat(1.5, 10) + 'rem';
 
 ////////////////////////////////////////////////
@@ -220,8 +219,7 @@ allSections.forEach((section) => {
 });
 ///////////////////////////////////////////////////
 /* Lazy loading images */
-const lazyImg = document.querySelectorAll('img[data-src]');
-console.log(lazyImg);
+const imgTargets = document.querySelectorAll('img[data-src]');
 
 const lazyLoading = function (entries, observer) {
   const [entry] = entries;
@@ -246,4 +244,96 @@ const lazyImgOption = {
 
 const imageObserver = new IntersectionObserver(lazyLoading, lazyImgOption);
 
-lazyImg.forEach((image) => imageObserver.observe(image));
+imgTargets.forEach((image) => imageObserver.observe(image));
+
+//////////////////////////////////////////////////////////////////
+/* Slider components*/
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  ////////////
+  // functions for slider component
+
+  // 1.  create dots
+  const createDots = function () {
+    slides.forEach((_, index) => {
+      const html = `<button class="dots__dot" data-slide="${index}"></button>`;
+
+      dotContainer.insertAdjacentHTML('beforeend', html);
+    });
+  };
+
+  // 2. activate dots
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach((dot) => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  // 3.  go-to-slide function
+  const goToSlide = function (theSlide) {
+    slides.forEach((slide, index) => {
+      slide.style.transform = `translateX(${100 * (index - theSlide)}%)`;
+    });
+  };
+
+  // 4.  next slide function
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // 5. previous slide function
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // 6. Initialize the slider component functions
+  const init = function () {
+    goToSlide(0);
+    createDots();
+
+    activateDot(0);
+  };
+  init();
+
+  // Event handlers for slides
+
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();
