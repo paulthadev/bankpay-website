@@ -2,11 +2,6 @@
 
 :key:<span>Take a look https://fadayopaul.github.io/bankpay-website/ </span>
 
-<h3 align="center"> 
-	Application status: Developement Stage ⚠️
-</h3>
-<br>
-
 ## 📓 About
 
 In this project I've learned and applied advanced techniques of DOM manipulation and animation, I also made the site fully responsive
