@@ -220,7 +220,8 @@ allSections.forEach((section) => {
 });
 ///////////////////////////////////////////////////
 /* Lazy loading images */
-const lazyImg = document.querySelectorAll('.lazy-img');
+const lazyImg = document.querySelectorAll('img[data-src]');
+console.log(lazyImg);
 
 const lazyLoading = function (entries, observer) {
   const [entry] = entries;
