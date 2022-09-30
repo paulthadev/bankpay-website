@@ -337,3 +337,11 @@ const slider = function () {
   });
 };
 slider();
+/////////////////////////////////////////
+/* Mobile nav */
+
+const navBtn = document.querySelector('.btn-mobile-nav');
+
+nav.addEventListener('click', function (e) {
+  nav.classList.toggle('nav--open');
+});
