@@ -29,5 +29,5 @@ In this project I've learned and applied advanced techniques of DOM manipulation
 
 ## :information_source: Application installation
 
-- `https://github.com/fadayopaul/bankpay-website.git` to clone the repository
+- `https://github.com/paulthadev/bankpay-website.git` to clone the repository
   <br>
